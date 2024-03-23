@@ -10,6 +10,7 @@ import UpdatePost from "./pages/UpdatePost"
 import Search from "./pages/Search"
 import PostPage from "./pages/PostPage"
 import Header from "./components/Header"
+import FooterCom from "./components/Footer"
 
 function App() {
 
@@ -28,6 +29,7 @@ function App() {
         <Route path="/projects" element={<Projects/>}  />
         <Route path="/post/:postSlug" element={<PostPage/>}  />
       </Routes>
+      <FooterCom />
     </BrowserRouter>
   )
 }
