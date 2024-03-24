@@ -4,6 +4,7 @@ import {Link,useNavigate} from "react-router-dom"
 import newRequest from '../utils/newRequest';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import OAuth from '../components/OAuth';
 
 
 const SignUp = () => {
@@ -118,7 +119,7 @@ const SignUp = () => {
                 </>
               ) : "Sign Up"
             }
-
+              <OAuth/>
             </Button>
           </form>
           <div className='flex gap-2 text-sm mt-5'>

@@ -6,6 +6,7 @@ import { useDispatch,useSelector } from 'react-redux';
 import { signInStart,signInSuccess,signInFailure } from '../redux/user/userSlice';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import OAuth from '../components/OAuth';
 
 const SignIn = () => {
 
@@ -112,6 +113,7 @@ const SignIn = () => {
             }
 
             </Button>
+            <OAuth/>
           </form>
           <div className='flex gap-2 text-sm mt-5'>
             <span>Don't Have an account?</span>
