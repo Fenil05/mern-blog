@@ -2,6 +2,9 @@ import React, { useState } from 'react'
 import { Alert, Button, Label, Spinner, TextInput } from 'flowbite-react';
 import {Link,useNavigate} from "react-router-dom"
 import newRequest from '../utils/newRequest';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const SignUp = () => {
   const [formData,setFormData] = useState({})
@@ -19,7 +22,17 @@ const SignUp = () => {
   const handleSubmit = async(e)=>{
     e.preventDefault()
     if(!formData.username || !formData.email || !formData.password){
-      return setErrorMessage("Please fill out All fields!")
+       setErrorMessage("Please fill out All fields!")
+      return toast.error(`Please fill out all fields!`, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        });
     }
     try {
       setLoading(true)
@@ -31,6 +44,16 @@ const SignUp = () => {
     } catch (err) {
       setLoading(false)
       setErrorMessage(err.response.data.message)
+      toast.error(`${err.response.data.message}`, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        });
     }
   }
 
@@ -104,13 +127,18 @@ const SignUp = () => {
               Sign In
             </Link>
           </div>
-          {
-            errorMessage && (
-              <Alert className='mt-5' color="failure">
-                {errorMessage}
-              </Alert>
-            )
-          }
+          <ToastContainer
+            position="top-center"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="colored"
+            />
         </div>
       </div>
     </div>
